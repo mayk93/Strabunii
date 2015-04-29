@@ -1,0 +1,5 @@
+/* Copyright (C) Mandrescu Mihai Petru - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ * Written by Mandrescu Mihai Petru <mihai.mandrescu@gmail.com>, April 2015
+ */
