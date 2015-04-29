@@ -1,0 +1,20 @@
+A square tile is made out of two triangles.
+We define a triangle as a collection of 3 integers,
+representing the  index of the three vertices that describe them.
+We define "triangles" (the variable) as an array of 6 elements.
+We use 6, as in 6 = 2*3 integers to represent the fact a tile is
+made out of 2 triangles, each triangle being made out of 3 vertices.
+
+    0 ----- 1
+    | \  B  |
+    |   \   |
+    | A   \ |
+    2 ----- 3
+
+    The tile is made from triangles A and B.
+    Triangle A is defined as the vertices [0,3,2]
+    Triangle A is defined as the vertices [0,1,3]
+    As a rule of thumb, we start the notations clockwise.
+    It is important to keep track of the order because the renderer
+    might display them "wrong" ( the mesh could be visible on the side
+    opposite to the camera ).
