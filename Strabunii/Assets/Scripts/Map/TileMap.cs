@@ -5,6 +5,8 @@ using System.Collections;
  * Script Requirements
  * This script will ensure the object it is attached to has a mesh filter,renderer and collider 
  */
+
+[ExecuteInEditMode]
 [RequireComponent (typeof(MeshFilter))] 
 [RequireComponent (typeof(MeshRenderer))] 
 [RequireComponent (typeof(MeshCollider))] 
@@ -29,7 +31,7 @@ public class TileMap : MonoBehaviour
 	}
 
 	/* This method creates our game map */
-	void BuildMapMesh()
+	public void BuildMapMesh()
 	{
 		#region Variables
 		int numberOfTiles = mapHeight * mapWidth;
@@ -49,7 +51,7 @@ public class TileMap : MonoBehaviour
 		#region Mesh data initialization
 		Vector3[] vertices = new Vector3[numberOfVertices];
 		Vector3[] normals = new Vector3[numberOfVertices];
-		Vector2[] uv = new Vector2[numberOfVertices];
+		Vector2[] uv = new Vector2[numberOfVertices]; // Used for bit-map application
 		int[] triangles = new int[ numberOfTriangles * 3 ];
 		#endregion
 
@@ -58,9 +60,10 @@ public class TileMap : MonoBehaviour
 		{
 			for(int verticalIndex=0; verticalIndex < numberOfVerticalVertices; verticalIndex++) 
 			{
-				vertices[ horizontalIndex * numberOfVerticalVertices + verticalIndex ] = new Vector3( verticalIndex*tileSize, 0, horizontalIndex*tileSize );
-				normals[ horizontalIndex * numberOfVerticalVertices + verticalIndex ] = Vector3.up;
-				uv[ horizontalIndex * numberOfVerticalVertices + verticalIndex ] = new Vector2( (float)verticalIndex / numberOfVerticalVertices, (float)horizontalIndex / numberOfHorizontalVertices );
+				int currentIndex = horizontalIndex * numberOfVerticalVertices + verticalIndex;
+				vertices[ currentIndex ] = new Vector3( verticalIndex*tileSize, Random.Range(-0.5f,0.5f), horizontalIndex*tileSize );
+				normals[ currentIndex ] = Vector3.up;
+				uv[ currentIndex ] = new Vector2( (float)verticalIndex / numberOfVerticalVertices, (float)horizontalIndex / numberOfHorizontalVertices );
 			}
 		}
 		#endregion

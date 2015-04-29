@@ -14,7 +14,7 @@ made out of 2 triangles, each triangle being made out of 3 vertices.
     The tile is made from triangles A and B.
     Triangle A is defined as the vertices [0,3,2]
     Triangle A is defined as the vertices [0,1,3]
-    As a rule of thumb, we start the notations clockwise.
+    As a rule of thumb, we start the notations clockwise ( for the triangle )
     It is important to keep track of the order because the renderer
     might display them "wrong" ( the mesh could be visible on the side
     opposite to the camera ).
